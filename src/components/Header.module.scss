@@ -74,3 +74,44 @@
     }
   }
 }
+
+.nav {
+  background-color: white;
+  width: 260px;
+  height: 365px;
+  position: absolute;
+  right: 1em;
+  top: 3.7rem;
+  z-index: 99;
+  border: solid 1px #dbdbdb;
+  border-radius: 4px;
+  transform: scale(0, 0);
+  transform-origin: top right;
+  transition: transform 0.1s;
+  opacity: 0;
+
+  // &:after {
+  //   border-width: 10px 10px 0 10px;
+  //   border-top-color: #ecf5ff; /*淺色*/
+  //   top: 60px;
+  //   right: 20px;
+  //   z-index: 99;
+  // }
+  // &:before {
+  //   border-width: 13px 13px 0 13px;
+  //   border-top-color: #c4e1ff; /*深色*/
+  //   position: absolute;
+  //   top: 60px;
+  //   right: 17px;
+  //   z-index: 99;
+  // }
+}
+
+.toggle {
+  display: none;
+}
+
+.toggle:checked ~ .nav {
+  transform: scale(1, 1);
+  opacity: 1;
+}

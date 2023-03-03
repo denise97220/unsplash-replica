@@ -41,6 +41,14 @@ const Header = ({ searchHandler }) => {
             <SearchIcon className={styles.searchIcon} onClick={clickHandler} />
           </div>
         </div>
+        <input className={styles.toggle} type='checkbox' id='navbar-toggle' />
+        <nav className={styles.nav}>
+          <ul className=''>
+            <Link to='/login'>
+              <li className=''>Log in</li>
+            </Link>
+          </ul>
+        </nav>
         <label className={styles.hamburgerContainer} htmlFor='navbar-toggle'>
           <span className={styles.hamburger}></span>
         </label>
