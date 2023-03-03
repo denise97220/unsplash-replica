@@ -1,0 +1,73 @@
+.cover {
+  background-image: url('../assets/cover.jpg');
+  height: 20rem;
+  background-size: 120%;
+  background-position: center;
+
+  .textContainer {
+    color: white;
+    padding: 1rem;
+    padding-top: 3rem;
+  }
+
+  .primaryMain {
+    font-size: 1.5rem;
+    display: block;
+    line-height: 3rem;
+  }
+
+  .primarySub {
+    font-size: 1rem;
+    display: block;
+    line-height: 1.5rem;
+  }
+}
+
+.menu {
+  .list {
+    display: flex;
+    padding: 1rem;
+    list-style: none;
+
+    li {
+      margin-right: 1.2rem;
+      cursor: pointer;
+
+      .listLink {
+        font-size: 15px;
+        font-weight: 500;
+        color: rgb(117, 116, 116);
+
+        &:hover {
+          color: black;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .cover {
+    height: 35rem;
+    background-position: center;
+    position: relative;
+
+    .textContainer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .primaryMain {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 5rem;
+    }
+
+    .primarySub {
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  .logoBox {
+    width: 2.1rem;
+    height: 2.1rem;
+    padding-left: 1rem;
+    padding-top: 0.3rem;
+
+    .logo {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .searchBar {
+    position: relative;
+    width: 85%;
+    height: 3rem;
+    padding: 0.5rem;
+    padding-left: 0.8rem;
+    box-sizing: border-box;
+
+    .searchInput {
+      width: 100%;
+      height: 0.5rem;
+      padding: 1.2rem;
+      padding-left: 3rem;
+      border: none;
+      border-radius: 1.5rem;
+      background-color: #eee;
+    }
+
+    .searchButton {
+      position: absolute;
+      cursor: pointer;
+      position: absolute;
+      top: 1.1rem;
+      left: 1.5rem;
+    }
+  }
+
+  .hamburgerContainer {
+    padding: 0.5rem;
+    padding-top: 0.8rem;
+    position: relative;
+
+    .hamburger {
+      width: 18px;
+      height: 2.2px;
+      background: #4c4c4c;
+      display: block;
+      position: relative;
+
+      &::before,
+      &::after {
+        content: '';
+        width: 18px;
+        height: 2.2px;
+        background: #4c4c4c;
+        position: absolute;
+        left: 0;
+      }
+
+      &::before {
+        top: 5px;
+      }
+
+      &::after {
+        bottom: 5px;
+      }
+    }
+  }
+}
