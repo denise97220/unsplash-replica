@@ -12,3 +12,17 @@
     box-sizing: border-box;
   }
 }
+
+@media screen and (min-width: 992px) {
+  .waterfall {
+    column-count: 3;
+    column-gap: 1.8rem;
+    padding: 2rem;
+  }
+}
+
+@media screen and (min-width: 1320px) {
+  .waterfall {
+    width: 1320px;
+  }
+}
