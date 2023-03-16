@@ -3,7 +3,8 @@ import PhotoDetail from './pages/PhotoDetail'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import RootLayout from './pages/RootLayout'
 import ErrorPage from './pages/ErrorPage'
-import Login from './pages/Login'
+import Login, { action as loginAction } from './pages/Login'
+import Signup, { loader as signupLoader, action as signupAction } from './pages/Signup'
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,14 @@ const router = createBrowserRouter([
   },
   {
     path: '/login',
-    element: <Login />
+    element: <Login />,
+    action: loginAction
+  },
+  {
+    path: '/signup',
+    element: <Signup />,
+    loader: signupLoader,
+    action: signupAction
   }
 ])
 

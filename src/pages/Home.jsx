@@ -1,9 +1,8 @@
-import axios from 'axios'
 import { useState, useEffect } from 'react'
 import PhotoCard from '../components/PhotoCard'
 import Cover from '../components/Cover'
 import styles from './Home.module.scss'
-import { useOutletContext } from 'react-router'
+import { json, useOutletContext } from 'react-router'
 
 const Home = () => {
   const [photos, setPhotos] = useState([])
@@ -17,14 +16,19 @@ const Home = () => {
   // const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    axios
-      .get(INDEX_URL)
-      .then((response) => {
-        setPhotos(response.data.results)
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
+
+    async function fetchData() {
+      const response = await fetch(INDEX_URL)
+
+      if (!response.ok) {
+        return json({ message: 'Could not fetch photos.' }, { status: 500 })
+      } else {
+        const resData = await response.json()
+        setPhotos(resData.results)
+      }
+    }
+
+    fetchData()
   }, [keyword])
 
   const searchHandler = (keyword) => {

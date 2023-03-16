@@ -1,0 +1,20 @@
+.cover {
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .primaryMain {
+    font-size: 1.6rem;
+    font-weight: 900;
+    padding: 1rem 0 0.5rem 0;
+  }
+
+  .primarySub {
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+}

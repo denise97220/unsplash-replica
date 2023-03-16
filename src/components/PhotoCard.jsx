@@ -5,6 +5,7 @@ import { ReactComponent as HeartIcon } from '../assets/heart.svg'
 const PhotoCard = ({ photo }) => {
   return (
     <div className={styles.photoCard}>
+      {/* use Route to pass photo */}
       <Link className={styles.link} to={`/photo/${photo.id}`} state={{ photo: photo }}>
         <div className={styles.photo}>
           <img className={styles.photo__img} src={photo.urls.regular} alt='' />

@@ -2,12 +2,16 @@ import styles from './Header.module.scss'
 import { ReactComponent as SearchIcon } from '../assets/search.svg'
 import { useRef } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import useAuth from '../custom-hooks/useAuth'
+import { auth } from '../firebase.config'
+import { signOut } from 'firebase/auth'
 
 const Header = ({ searchHandler }) => {
   const logo = new URL('../assets/unsplash.png', import.meta.url).href
   const inputRef = useRef('')
   const location = useLocation()
   const navigate = useNavigate()
+  const currentUser = useAuth()
 
   const clickHandler = () => {
     const value = inputRef.current.value
@@ -18,6 +22,12 @@ const Header = ({ searchHandler }) => {
     if (location.pathname !== '/') {
       return navigate(`/?search=${value}`)
     }
+  }
+
+  const logOutHandler = () => {
+    signOut(auth)
+      .then(() => console.log('success log out'))
+      .catch((error) => console.log(error))
   }
 
   return (
@@ -44,9 +54,19 @@ const Header = ({ searchHandler }) => {
         <input className={styles.toggle} type='checkbox' id='navbar-toggle' />
         <nav className={styles.nav}>
           <ul className=''>
-            <Link to='/login'>
-              <li className=''>Log in</li>
+            {!currentUser && (
+              <Link to='/login'>
+                <li className=''>Log in</li>
+              </Link>
+            )}
+            <Link to='/signup'>
+              <li className=''>Sign up</li>
             </Link>
+            {currentUser && (
+              <li onClick={logOutHandler} className=''>
+                Log out
+              </li>
+            )}
           </ul>
         </nav>
         <label className={styles.hamburgerContainer} htmlFor='navbar-toggle'>

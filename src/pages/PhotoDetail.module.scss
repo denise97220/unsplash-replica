@@ -48,6 +48,15 @@
       object-fit: contain;
     }
   }
+
+  .waterfall {
+    width: 100%;
+    margin: 0 auto;
+    column-count: 2;
+    column-gap: 1.5rem;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -60,5 +69,17 @@
       left: 50%;
       transform: translateX(-50%);
     }
+  }
+
+  .waterfall {
+    column-count: 3;
+    column-gap: 1.8rem;
+    padding: 2rem;
+  }
+}
+
+@media screen and (min-width: 1320px) {
+  .waterfall {
+    width: 1320px;
   }
 }

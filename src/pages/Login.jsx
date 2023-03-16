@@ -1,6 +1,8 @@
-import { Link } from 'react-router-dom'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { Link, redirect } from 'react-router-dom'
 import AuthForm from '../components/AuthForm'
 import styles from './Login.module.scss'
+import { auth } from '../firebase.config'
 
 const Login = () => {
   const logo = new URL('../assets/unsplash.png', import.meta.url).href
@@ -24,3 +26,21 @@ const Login = () => {
 }
 
 export default Login
+
+export async function action({ request }) {
+  const data = await request.formData()
+  const email = data.get('email')
+  const password = data.get('password')
+
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password)
+    const user = userCredential.user
+    console.log(user)
+
+    return redirect('/')
+  } catch (error) {
+    console.log(error)
+  }
+
+  return null
+}
