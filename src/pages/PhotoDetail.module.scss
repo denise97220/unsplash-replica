@@ -37,6 +37,30 @@
   }
 }
 
+.tags {
+  padding: 1rem;
+  .tags__title {
+    padding-bottom: 1.2rem;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    background-color: #e7e7e7;
+    color: #7d7d7d;
+    border-radius: 2px;
+    margin-right: 0.5rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+.photos__title {
+  padding-left: 1rem;
+  margin-top: 2rem;
+}
+
 @media screen and (min-width: 768px) {
   .photo {
     padding: 1rem;

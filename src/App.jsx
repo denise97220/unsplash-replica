@@ -5,6 +5,7 @@ import RootLayout from './pages/RootLayout'
 import ErrorPage from './pages/ErrorPage'
 import Login, { action as loginAction } from './pages/Login'
 import Signup, { loader as signupLoader, action as signupAction } from './pages/Signup'
+import Author from './pages/Author'
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Home /> },
-      { path: 'photo/:photoId', element: <PhotoDetail /> }
+      { path: 'photo/:photoId', element: <PhotoDetail /> },
+      { path: 'author/:authorName', element: <Author /> }
     ]
   },
   {

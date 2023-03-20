@@ -1,0 +1,64 @@
+.profile {
+  padding: 1rem;
+  padding-top: 3rem;
+}
+
+.author {
+  &__img,
+  &__name,
+  &__bio {
+    margin-bottom: 1rem;
+  }
+
+  &__img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 100%;
+  }
+
+  &__name {
+    font-weight: 900;
+    font-size: 1.2rem;
+  }
+}
+
+.information {
+  li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    color: #626262;
+    font-size: 1rem;
+  }
+
+  .icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-right: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .waterfall {
+    width: 100%;
+    margin: 0 auto;
+    column-count: 2;
+    column-gap: 1.5rem;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .waterfall {
+    column-count: 3;
+    column-gap: 1.8rem;
+    padding: 2rem;
+  }
+}
+
+@media screen and (min-width: 1320px) {
+  .waterfall {
+    width: 1320px;
+  }
+}

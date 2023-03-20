@@ -16,7 +16,6 @@ const Home = () => {
   // const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-
     async function fetchData() {
       const response = await fetch(INDEX_URL)
 
