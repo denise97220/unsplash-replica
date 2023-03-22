@@ -1,10 +1,12 @@
-import { redirect } from 'react-router'
-import useAuth from '../custom-hooks/useAuth'
+// import { redirect } from 'react-router'
+// import useAuth from '../custom-hooks/useAuth'
 
-export function checkAuthLoader() {
-  const user = useAuth()
+// const Auth = () => {
+//   currentUser = useAuth()
+// }
 
-  if (!user) {
-    return redirect('/login')
-  }
-}
+// export function checkAuthLoader() {
+//   if (!currentUser) {
+//     return redirect('/login')
+//   }
+// }

@@ -53,7 +53,7 @@ const Header = ({ searchHandler }) => {
         </div>
         <input className={styles.toggle} type='checkbox' id='navbar-toggle' />
         <nav className={styles.nav}>
-          <ul className=''>
+          <ul className={styles.nav__ul}>
             {!currentUser && (
               <Link to='/login'>
                 <li className=''>Log in</li>
@@ -67,11 +67,35 @@ const Header = ({ searchHandler }) => {
                 Log out
               </li>
             )}
+            <Link to='/collection'>
+              <li className=''>Collection</li>
+            </Link>
           </ul>
         </nav>
         <label className={styles.hamburgerContainer} htmlFor='navbar-toggle'>
           <span className={styles.hamburger}></span>
         </label>
+        {/* 桌機版 header */}
+        <nav className={styles.nav__desktop}>
+          <ul className={styles.desktop__ul}>
+            {!currentUser && (
+              <Link to='/login'>
+                <li className=''>Log in</li>
+              </Link>
+            )}
+            <Link to='/signup'>
+              <li className=''>Sign up</li>
+            </Link>
+            {currentUser && (
+              <li onClick={logOutHandler} className=''>
+                Log out
+              </li>
+            )}
+            <Link to='/collection'>
+              <li className=''>Collection</li>
+            </Link>
+          </ul>
+        </nav>
       </header>
     </>
   )

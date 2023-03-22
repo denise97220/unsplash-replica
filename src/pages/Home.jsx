@@ -11,9 +11,9 @@ const Home = () => {
   // API use
   const BASE_URL = 'https://api.unsplash.com/'
   const clientID = 'client_id=cUK75VKddQZYTb5-OA40rh4qg74_oGQOspcSfjtjcAQ'
-  const per_page = 'per_page=30&page='
+  const per_page = 'per_page=25&page='
   let INDEX_URL = `${BASE_URL}search/photos?${clientID}&query=${keyword}&${per_page}`
-  // const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     async function fetchData() {

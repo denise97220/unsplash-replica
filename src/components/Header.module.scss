@@ -17,7 +17,7 @@
 
   .searchBar {
     position: relative;
-    width: 85%;
+    width: calc(100vw - 18px - 2.1rem);
     height: 3rem;
     padding: 0.5rem;
     padding-left: 0.8rem;
@@ -45,6 +45,7 @@
   .hamburgerContainer {
     padding: 0.5rem;
     padding-top: 0.8rem;
+    padding-right: 0.8rem;
     position: relative;
 
     .hamburger {
@@ -73,6 +74,10 @@
       }
     }
   }
+
+  .nav__desktop {
+    display: none;
+  }
 }
 
 .nav {
@@ -90,21 +95,16 @@
   transition: transform 0.1s;
   opacity: 0;
 
-  // &:after {
-  //   border-width: 10px 10px 0 10px;
-  //   border-top-color: #ecf5ff; /*淺色*/
-  //   top: 60px;
-  //   right: 20px;
-  //   z-index: 99;
-  // }
-  // &:before {
-  //   border-width: 13px 13px 0 13px;
-  //   border-top-color: #c4e1ff; /*深色*/
-  //   position: absolute;
-  //   top: 60px;
-  //   right: 17px;
-  //   z-index: 99;
-  // }
+  &__ul {
+    padding: 1rem;
+
+    li {
+      margin-bottom: 1rem;
+      color: #6b6b6b;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+  }
 }
 
 .toggle {
@@ -114,4 +114,48 @@
 .toggle:checked ~ .nav {
   transform: scale(1, 1);
   opacity: 1;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    .nav,
+    .hamburgerContainer {
+      display: none;
+    }
+
+    .nav__desktop {
+      display: block;
+      width: 250px;
+
+      .desktop__ul {
+        display: flex;
+        padding-top: 0.2rem;
+
+        li {
+          margin-left: 1rem;
+          color: #6b6b6b;
+          font-size: 0.9rem;
+          font-weight: 800;
+        }
+      }
+    }
+
+    .searchBar {
+      width: calc(100vw - 250px - 2.1rem);
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+}
+
+@media screen and (min-width: 1320px) {
 }
