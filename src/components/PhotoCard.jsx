@@ -13,14 +13,30 @@ import { useEffect, useState } from 'react'
 const PhotoCard = ({ photo }) => {
   const dispatch = useDispatch()
   const currentUser = useAuth()
-  // const [isLiked, setIsLiked] = useState(false)
   const collection = useSelector((state) => state)
+  const [isLiked, setIsLiked] = useState(false)
+
+  useEffect(() => {
+    collection.forEach((likePhoto) => {
+      if (likePhoto.id === photo.id) {
+        setIsLiked(true)
+      }
+    })
+  }, [collection])
 
   const likeHandler = () => {
     if (!currentUser) {
       return alert('請先登入')
     }
     dispatch(collectionAction.like(photo))
+  }
+
+  const unLikeHandler = () => {
+    if (!currentUser) {
+      return alert('請先登入')
+    }
+    setIsLiked(false)
+    dispatch(collectionAction.unLike(photo))
   }
 
   return (
@@ -50,9 +66,15 @@ const PhotoCard = ({ photo }) => {
         </div>
       </Link>
       <div className={`${styles.button} ${styles.button__hover} ${styles.hover}`}>
-        <div className={styles.buttonBox} onClick={likeHandler}>
-          <HeartIcon className={`${styles.icon} ${styles.LikeIcon}`} />
-        </div>
+        {isLiked ? (
+          <div className={`${styles.buttonBox} ${styles.LikeButtonBox}`} onClick={unLikeHandler}>
+            <HeartLikeIcon className={`${styles.icon} ${styles.heartLikeIcon}`} />
+          </div>
+        ) : (
+          <div className={styles.buttonBox} onClick={likeHandler}>
+            <HeartIcon className={`${styles.icon} ${styles.LikeIcon}`} />
+          </div>
+        )}
         <div className={styles.buttonBox}>
           <a href={photo.urls.small_s3}>
             <DownloadIcon className={`${styles.icon} ${styles.downloadIcon}`} />

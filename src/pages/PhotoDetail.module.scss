@@ -37,6 +37,20 @@
   }
 }
 
+.information {
+  padding: 1rem;
+
+  &__title {
+    padding-bottom: 0.5rem;
+    padding-top: 1.5rem;
+  }
+
+  &__content {
+    font-size: 0.9rem;
+    color: #5d5d5d;
+  }
+}
+
 .tags {
   padding: 1rem;
   &__title {

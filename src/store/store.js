@@ -7,15 +7,15 @@ const collectionSlice = createSlice({
   initialState,
   reducers: {
     like(state, action) {
-      // const isLiked = state.some((photo) => {
-      //   photo.id === action.payload.id
-      // })
-
-      // if (isLiked) return
       state.push({ ...action.payload, liked_by_user: true })
     },
     unLike(state, action) {
-      const index = state.indexOf(action.payload)
+      const index = state
+        .map((photo) => {
+          return photo.id
+        })
+        .indexOf(action.payload.id)
+
       if (index !== -1) {
         state.splice(index, 1)
       }

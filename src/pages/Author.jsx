@@ -23,7 +23,6 @@ const Author = () => {
       } else {
         const resData = await response.json()
         setPhotos(resData)
-        console.log(resData)
       }
     }
 

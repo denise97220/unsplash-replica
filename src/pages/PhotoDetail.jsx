@@ -46,7 +46,12 @@ const PhotoDetail = () => {
           <img className={styles.photo__img} src={photo.urls.regular} alt='' />
         </div>
       </div>
-      <div className={styles.information}></div>
+      <div className={styles.information}>
+        <h3 className={styles.information__title}>Description</h3>
+        <p className={styles.information__content}>
+          {photo.alt_description ? photo.alt_description : "There's no description here."}
+        </p>
+      </div>
       <div className={styles.tags}>
         <h3 className={styles.tags__title}>Related tags</h3>
         {photo.tags &&

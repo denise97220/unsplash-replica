@@ -14,7 +14,6 @@ const Login = () => {
   const logo = new URL('../assets/unsplash.png', import.meta.url).href
   const data = useActionData()
   let message
-  console.log(data)
 
   if (data === errorMessage[0] || data === errorMessage[1]) {
     message = 'Invalid email or password.'

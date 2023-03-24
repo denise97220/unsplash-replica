@@ -11,7 +11,7 @@ const Signup = () => {
   const cover = new URL('../assets/signup_cover.jpg', import.meta.url).href
   const data = useActionData()
   let message = ''
-  console.log(data)
+
   if (data === 'passwords do not match.') {
     message = data
   } else if (data === 'Firebase: Error (auth/email-already-in-use).') {

@@ -70,6 +70,9 @@ const Header = ({ searchHandler }) => {
             <Link to='/collection'>
               <li className=''>Collection</li>
             </Link>
+            <a href='https://unsplash.com/about'>
+              <li className=''>About</li>
+            </a>
           </ul>
         </nav>
         <label className={styles.hamburgerContainer} htmlFor='navbar-toggle'>

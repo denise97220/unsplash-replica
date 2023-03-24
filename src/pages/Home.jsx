@@ -19,6 +19,8 @@ const Home = () => {
     async function fetchData() {
       const response = await fetch(INDEX_URL)
 
+      // TODO: change to try catch
+
       if (!response.ok) {
         return json({ message: 'Could not fetch photos.' }, { status: 500 })
       } else {
