@@ -12,8 +12,13 @@ const collectionSlice = createSlice({
       // })
 
       // if (isLiked) return
-      console.log(action.payload)
-      state.push(action.payload)
+      state.push({ ...action.payload, liked_by_user: true })
+    },
+    unLike(state, action) {
+      const index = state.indexOf(action.payload)
+      if (index !== -1) {
+        state.splice(index, 1)
+      }
     }
   }
 })

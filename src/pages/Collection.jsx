@@ -7,6 +7,11 @@ const Collection = () => {
 
   return (
     <>
+      {collection.length == 0 ? (
+        <p className={styles.alert}>Oh no! There's nothing here :(</p>
+      ) : (
+        <p className={styles.title}>Collection</p>
+      )}
       <div className={styles.waterfall}>
         {collection.map((photo) => (
           <PhotoCard key={photo.id} photo={photo} />

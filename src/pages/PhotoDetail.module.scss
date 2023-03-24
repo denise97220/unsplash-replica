@@ -39,7 +39,7 @@
 
 .tags {
   padding: 1rem;
-  .tags__title {
+  &__title {
     padding-bottom: 1.2rem;
   }
 
@@ -59,6 +59,9 @@
 .photos__title {
   padding-left: 1rem;
   margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgb(206, 206, 206);
 }
 
 @media screen and (min-width: 768px) {

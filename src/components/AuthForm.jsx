@@ -1,8 +1,10 @@
-import { Form, useLocation } from 'react-router-dom'
+import { Form, useLocation, useNavigate, useNavigation } from 'react-router-dom'
 import styles from './AuthForm.module.scss'
 
 const AuthForm = () => {
   const location = useLocation()
+  const navigation = useNavigation()
+  const isSubmitting = navigation.state === 'submitting'
 
   return (
     <>
@@ -34,7 +36,16 @@ const AuthForm = () => {
           </div>
         )}
         <div className={styles.button_container}>
-          <button className={styles.button}>{location.pathname === '/login' ? 'Login' : 'Join'}</button>
+          {location.pathname === '/login' && (
+            <button className={styles.button} disabled={isSubmitting}>
+              {isSubmitting ? 'Submitting...' : 'Login'}
+            </button>
+          )}
+          {location.pathname === '/signup' && (
+            <button className={styles.button} disabled={isSubmitting}>
+              {isSubmitting ? 'Submitting...' : 'Join'}
+            </button>
+          )}
         </div>
       </Form>
     </>

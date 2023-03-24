@@ -7,12 +7,15 @@ const PhotoDetail = () => {
   const location = useLocation()
   const photo = location.state.photo
   const [relatedPhotos, setRelatedPhotos] = useState([])
+  const randomTags = ['Travel', 'Wallpapers', 'Night', 'City']
 
   // API use
   const BASE_URL = 'https://api.unsplash.com/'
   const clientID = 'client_id=cUK75VKddQZYTb5-OA40rh4qg74_oGQOspcSfjtjcAQ'
   const per_page = 'per_page=10&page='
-  let INDEX_URL = `${BASE_URL}search/photos?${clientID}&query=${photo.tags[2].title}&${per_page}`
+  let INDEX_URL = `${BASE_URL}search/photos?${clientID}&query=${
+    photo.tags ? photo.tags[2].title : randomTags[Math.floor(Math.random() * 4)]
+  }&${per_page}`
 
   useEffect(() => {
     async function fetchData() {
@@ -46,11 +49,12 @@ const PhotoDetail = () => {
       <div className={styles.information}></div>
       <div className={styles.tags}>
         <h3 className={styles.tags__title}>Related tags</h3>
-        {photo.tags.map((tag) => (
-          <div className={styles.tag} key={tag.title}>
-            {tag.title}
-          </div>
-        ))}
+        {photo.tags &&
+          photo.tags.map((tag) => (
+            <div className={styles.tag} key={tag.title}>
+              {tag.title}
+            </div>
+          ))}
       </div>
       <div className={styles.related_photos}>
         <h3 className={styles.photos__title}>Related photos</h3>

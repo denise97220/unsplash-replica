@@ -12,7 +12,6 @@ const Author = () => {
   const [photos, setPhotos] = useState([])
 
   const clientID = 'client_id=cUK75VKddQZYTb5-OA40rh4qg74_oGQOspcSfjtjcAQ'
-  // const per_page = 'per_page=20&page='
   let INDEX_URL = `${user.links.photos}?${clientID}`
 
   useEffect(() => {
@@ -24,7 +23,7 @@ const Author = () => {
       } else {
         const resData = await response.json()
         setPhotos(resData)
-        console.log(photos)
+        console.log(resData)
       }
     }
 
@@ -35,26 +34,28 @@ const Author = () => {
     <>
       <div className={styles.profile}>
         <img className={styles.author__img} src={user.profile_image.large} alt='' />
-        <h3 className={styles.author__name}>{user.name}</h3>
-        <p className={styles.author__bio}>{user.bio}</p>
-        <ul className={styles.information}>
-          <li>
-            <CheckIcon className={`${styles.icon} ${styles.CheckIcon}`} />
-            <p>Available for hire</p>
-          </li>
-          <li className={styles.location}>
-            <LocationIcon className={`${styles.icon} ${styles.locationIcon}`} />
-            <p>{user.location}</p>
-          </li>
-          <a href={`https://www.instagram.com/${user.social.instagram_username}`}>
+        <div className={styles.author__profile}>
+          <h3 className={styles.author__name}>{user.name}</h3>
+          <p className={styles.author__bio}>{user.bio}</p>
+          <ul className={styles.information}>
             <li>
-              <InstagramIcon className={`${styles.icon} ${styles.instagramIcon}`} />
-              <p>Instagram</p>
+              <CheckIcon className={`${styles.icon} ${styles.CheckIcon}`} />
+              <p>Available for hire</p>
             </li>
-          </a>
-        </ul>
+            <li className={styles.location}>
+              <LocationIcon className={`${styles.icon} ${styles.locationIcon}`} />
+              <p>{user.location}</p>
+            </li>
+            <a href={`https://www.instagram.com/${user.social.instagram_username}`}>
+              <li>
+                <InstagramIcon className={`${styles.icon} ${styles.instagramIcon}`} />
+                <p>Instagram</p>
+              </li>
+            </a>
+          </ul>
+        </div>
       </div>
-      <h3>Photos</h3>
+      <h3 className={styles.photos}>Photos</h3>
       <div className={styles.waterfall}>
         {photos.map((photo) => (
           <PhotoCard key={photo.id} photo={photo} />

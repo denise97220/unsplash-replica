@@ -59,6 +59,10 @@
       height: 1rem;
       color: rgb(125, 125, 125);
     }
+
+    // .heartLikeIcon {
+    //   color: red;
+    // }
   }
 }
 
@@ -109,10 +113,11 @@ a {
     left: 0;
 
     .buttonBox {
-      border-color: white;
+      background-color: rgb(242, 242, 242);
+      border: none;
 
       .icon {
-        color: white;
+        color: rgb(80, 80, 80);
       }
     }
   }

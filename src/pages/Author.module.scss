@@ -38,7 +38,29 @@
   }
 }
 
+.photos {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgb(206, 206, 206);
+}
+
 @media screen and (min-width: 768px) {
+  .profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .author__profile {
+      padding-left: 3rem;
+
+      .author__name {
+        font-size: 3rem;
+      }
+    }
+  }
+
   .waterfall {
     width: 100%;
     margin: 0 auto;

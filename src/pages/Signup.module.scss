@@ -1,10 +1,58 @@
 .cover {
+  position: relative;
+
+  &__img {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+  }
+
+  &_title {
+    position: absolute;
+    top: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+    .logo {
+      width: 3.5rem;
+    }
+
+    .primaryMain {
+      font-size: 2rem;
+      font-weight: 900;
+      padding: 1rem 0 0.5rem 0;
+    }
+
+    .primarySub {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding-right: 0.4rem;
+    }
+  }
+}
+
+.formContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  text-decoration: underline;
 }
 
 .title {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 0.5rem;
+  padding-top: 1rem;
+  position: relative;
 
   .primaryMain {
     font-size: 1.6rem;
@@ -17,4 +65,57 @@
     font-weight: 400;
     letter-spacing: 0.5px;
   }
+}
+
+.alert {
+  position: absolute;
+  top: 115%;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+
+  .cover {
+    &__img {
+      height: 100%;
+    }
+
+    &_title {
+      .primaryMain {
+        margin-top: 6rem;
+        font-size: 3.5rem;
+        padding: 8rem 2rem 0.5rem 2rem;
+        line-height: 4rem;
+        letter-spacing: 0px;
+      }
+
+      .primarySub {
+        font-size: 1.5rem;
+        font-weight: 400;
+        padding: 2rem;
+        padding-top: 1rem;
+      }
+    }
+  }
+
+  .title {
+    .primaryMain {
+      font-size: 3rem;
+      padding: 1rem 0 1rem 0;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .cover {
+    &__img {
+      max-width: 1100px;
+    }
+  }
+}
+
+@media screen and (min-width: 1320px) {
 }

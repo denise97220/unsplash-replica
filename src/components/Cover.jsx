@@ -2,7 +2,7 @@ import styles from './Cover.module.scss'
 import { NavLink } from 'react-router-dom'
 
 const Cover = ({ searchHandler }) => {
-  const types = ['Taiwan', 'Japan', 'Ocean', 'People', 'Camera']
+  const types = ['Taiwan', 'Japan', 'Ocean', 'People', 'Camera', 'Classic cars']
 
   const onChangeKeywordHandler = (e) => {
     searchHandler(e.target.innerText)

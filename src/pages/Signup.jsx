@@ -1,31 +1,55 @@
 import styles from './Signup.module.scss'
 import AuthForm from '../components/AuthForm'
-import { redirect, useLoaderData } from 'react-router'
+import { redirect, useActionData } from 'react-router'
 import { auth } from '../firebase.config'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { Link } from 'react-router-dom'
+import Alert from '@mui/material/Alert'
 
 const Signup = () => {
-  const logo = new URL('../assets/unsplash.png', import.meta.url).href
-  const photo = useLoaderData()
+  const logo = new URL('../assets/unsplash_white.png', import.meta.url).href
+  const cover = new URL('../assets/signup_cover.jpg', import.meta.url).href
+  const data = useActionData()
+  let message = ''
+  console.log(data)
+  if (data === 'passwords do not match.') {
+    message = data
+  } else if (data === 'Firebase: Error (auth/email-already-in-use).') {
+    message = 'email already in use.'
+  }
 
   return (
     <>
       <div className={styles.container}>
         <div className={styles.cover}>
-          <img src={photo.urls.regular} alt='' />
+          <img className={styles.cover__img} src={cover} alt='' />
           <h1 className={styles.cover_title}>
-            <img className={styles.logo} src={logo} alt='logo' />
+            <Link to='/'>
+              <img className={styles.logo} src={logo} alt='logo' />
+            </Link>
+
             <span className={styles.primaryMain}>Creation starts here</span>
             <span className={styles.primarySub}>
               Access 4,896,865 free, high-resolution photos you can’t find anywhere else
             </span>
           </h1>
         </div>
-        <h1 className={styles.title}>
-          <span className={styles.primaryMain}>Join Unsplash</span>
-          <span className={styles.primarySub}>Already have an account? Login</span>
-        </h1>
-        <AuthForm />
+
+        <div className={styles.formContainer}>
+          <h1 className={styles.title}>
+            <span className={styles.primaryMain}>Join Unsplash</span>
+            <span className={styles.primarySub}>
+              Already have an account? <Link to='/login'>Login</Link>
+            </span>
+            {data && (
+              <Alert className={styles.alert} severity='error'>
+                {message}
+              </Alert>
+            )}
+          </h1>
+
+          <AuthForm />
+        </div>
       </div>
     </>
   )
@@ -33,38 +57,21 @@ const Signup = () => {
 
 export default Signup
 
-export async function loader() {
-  const BASE_URL = 'https://api.unsplash.com/'
-  const clientID = 'client_id=cUK75VKddQZYTb5-OA40rh4qg74_oGQOspcSfjtjcAQ'
-  let INDEX_URL = `${BASE_URL}photos/random?${clientID}`
-
-  const response = await fetch(INDEX_URL)
-
-  if (!response.ok) {
-    // error handler
-  } else {
-    const resData = await response.json()
-    // 使用 return 將抓到的資料回傳至元件使用
-    return resData
-  }
-}
-
 export async function action({ request }) {
   const data = await request.formData()
 
   const email = data.get('email')
   const password = data.get('password')
+  const passwordConfirmation = data.get('passwordConfirmation')
+
+  if (password !== passwordConfirmation) {
+    return 'passwords do not match.'
+  }
 
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password)
-
-    const user = userCredential.user
-    console.log(user)
-
     return redirect('/')
   } catch (error) {
-    console.log(error)
+    return error.message
   }
-
-  return null
 }
