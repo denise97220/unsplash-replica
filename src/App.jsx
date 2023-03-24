@@ -1,6 +1,6 @@
 import Home from './pages/Home'
 import PhotoDetail from './pages/PhotoDetail'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createHashRouter, RouterProvider } from 'react-router-dom'
 import RootLayout from './pages/RootLayout'
 import ErrorPage from './pages/ErrorPage'
 import Login, { action as loginAction } from './pages/Login'
@@ -15,7 +15,7 @@ import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <RootLayout />,
