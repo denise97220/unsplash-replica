@@ -6,8 +6,6 @@ import { ReactComponent as DownloadIcon } from '../assets/download.svg'
 import { collectionAction } from '../store/store'
 import { useDispatch, useSelector } from 'react-redux'
 import useAuth from '../custom-hooks/useAuth'
-
-// import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { useEffect, useState } from 'react'
 
 const PhotoCard = ({ photo }) => {
@@ -44,15 +42,7 @@ const PhotoCard = ({ photo }) => {
       {/* use Route to pass photo */}
       <Link className={styles.photo__link} to={`/photo/${photo.id}`} state={{ photo: photo }}>
         <div className={styles.photo}>
-          {/* seems lazy loading not work🤔 */}
-          <img
-            className={styles.photo__img}
-            src={photo.urls.small_s3}
-            alt='image'
-            loading='lazy'
-            height={500}
-            width={333}
-          />
+          <img className={styles.photo__img} alt='image' src={photo.urls.small_s3} loading='lazy' />
         </div>
       </Link>
       <Link
@@ -82,9 +72,15 @@ const PhotoCard = ({ photo }) => {
         </div>
       </div>
       <div className={`${styles.button} ${styles.button__phone}`}>
-        <div className={styles.buttonBox} onClick={likeHandler}>
-          <HeartIcon className={`${styles.icon} ${styles.LikeIcon}`} />
-        </div>
+        {isLiked ? (
+          <div className={`${styles.buttonBox} ${styles.LikeButtonBox}`} onClick={unLikeHandler}>
+            <HeartLikeIcon className={`${styles.icon} ${styles.heartLikeIcon}`} />
+          </div>
+        ) : (
+          <div className={styles.buttonBox} onClick={likeHandler}>
+            <HeartIcon className={`${styles.icon} ${styles.LikeIcon}`} />
+          </div>
+        )}
         <div className={styles.buttonBox}>
           <a href={photo.urls.small_s3}>
             <DownloadIcon className={`${styles.icon} ${styles.downloadIcon}`} />

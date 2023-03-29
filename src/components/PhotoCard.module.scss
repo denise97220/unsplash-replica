@@ -60,6 +60,11 @@
       color: rgb(125, 125, 125);
     }
   }
+
+  .LikeButtonBox {
+    background-color: rgb(255, 66, 66);
+    border: none;
+  }
 }
 
 .button__hover {
@@ -73,7 +78,8 @@ a {
 @media screen and (min-width: 768px) {
   .photoCard {
     margin-top: 0rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0rem;
+    padding-top: 1.5rem;
     transition: all 0.1s;
 
     .hover {
@@ -105,7 +111,7 @@ a {
   .button__hover {
     display: flex;
     position: absolute;
-    top: 0;
+    top: 1.5rem;
     left: 0;
 
     .buttonBox {

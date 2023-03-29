@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import PhotoCard from '../components/PhotoCard'
 import Cover from '../components/Cover'
 import styles from './Home.module.scss'
-import { json, useOutletContext } from 'react-router'
+import { useOutletContext } from 'react-router'
+import Spinner from '../components/Spinner'
 
 const Home = () => {
   const [photos, setPhotos] = useState([])
@@ -13,19 +14,21 @@ const Home = () => {
   const clientID = 'client_id=cUK75VKddQZYTb5-OA40rh4qg74_oGQOspcSfjtjcAQ'
   const per_page = 'per_page=25&page='
   let INDEX_URL = `${BASE_URL}search/photos?${clientID}&query=${keyword}&${per_page}`
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(INDEX_URL)
 
-      // TODO: change to try catch
-
-      if (!response.ok) {
-        return json({ message: 'Could not fetch photos.' }, { status: 500 })
-      } else {
+      // TODO: error handler
+      try {
+        setIsLoading(true)
         const resData = await response.json()
         setPhotos(resData.results)
+        setIsLoading(false)
+      } catch (error) {
+        console.log(error)
+        setIsLoading(false)
       }
     }
 
@@ -42,9 +45,7 @@ const Home = () => {
       <Cover searchHandler={searchHandler} />
 
       <div className={styles.waterfall}>
-        {photos.map((photo) => (
-          <PhotoCard key={photo.id} photo={photo} />
-        ))}
+        {isLoading ? <Spinner /> : photos.map((photo) => <PhotoCard key={photo.id} photo={photo} />)}
       </div>
     </div>
   )

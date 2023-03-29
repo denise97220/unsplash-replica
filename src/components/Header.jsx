@@ -24,6 +24,19 @@ const Header = ({ searchHandler }) => {
     }
   }
 
+  const KeyUpHandler = (event) => {
+    if (event.key === 'Enter') {
+      const value = inputRef.current.value
+      if (value.trim() === '') return
+
+      searchHandler(value)
+
+      if (location.pathname !== '/') {
+        return navigate(`/?search=${value}`)
+      }
+    }
+  }
+
   const logOutHandler = () => {
     signOut(auth)
       .then(() => console.log('success log out'))
@@ -46,6 +59,7 @@ const Header = ({ searchHandler }) => {
             className={styles.searchInput}
             placeholder='Search images'
             ref={inputRef}
+            onKeyUp={KeyUpHandler}
           />
           <div className={styles.searchButton}>
             <SearchIcon className={styles.searchIcon} onClick={clickHandler} />

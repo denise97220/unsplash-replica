@@ -1,10 +1,8 @@
 import { createSlice, configureStore } from '@reduxjs/toolkit'
 
-const initialState = []
-
 const collectionSlice = createSlice({
   name: 'collection',
-  initialState,
+  initialState: [],
   reducers: {
     like(state, action) {
       state.push({ ...action.payload, liked_by_user: true })

@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   width: 100%;
+  padding-top: 0.5rem;
 
   .logoBox {
     width: 2.1rem;
@@ -31,6 +32,7 @@
       border: none;
       border-radius: 1.5rem;
       background-color: #eee;
+      font-size: 0.8rem;
     }
 
     .searchButton {
@@ -102,7 +104,12 @@
       margin-bottom: 1rem;
       color: #6b6b6b;
       font-size: 0.9rem;
-      font-weight: 800;
+      font-weight: 500;
+      cursor: pointer;
+
+      &:hover {
+        color: black;
+      }
     }
   }
 }
@@ -140,9 +147,14 @@ ul {
 
         li {
           margin-left: 1rem;
-          color: #6b6b6b;
+          color: #757575;
           font-size: 0.9rem;
-          font-weight: 800;
+          font-weight: 500;
+          cursor: pointer;
+
+          &:hover {
+            color: black;
+          }
         }
       }
     }
