@@ -22,8 +22,8 @@ const Signup = () => {
     <>
       <div className={styles.container}>
         <div className={styles.cover}>
-          <img className={styles.cover__img} src={cover} alt='' />
-          <h1 className={styles.cover_title}>
+          <img className={styles.cover__img} src={cover} alt='image' />
+          <h1 className={styles.cover__title}>
             <Link to='/'>
               <img className={styles.logo} src={logo} alt='logo' />
             </Link>

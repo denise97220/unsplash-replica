@@ -59,6 +59,14 @@
       height: 1rem;
       color: rgb(125, 125, 125);
     }
+
+    &:hover {
+      border-color: rgb(65, 65, 65);
+    }
+
+    &:hover .icon {
+      color: rgb(65, 65, 65);
+    }
   }
 
   .LikeButtonBox {
@@ -89,15 +97,15 @@ a {
     &:hover .hover {
       opacity: 1;
     }
+
+    &:hover .photo {
+      -webkit-filter: brightness(0.8);
+    }
   }
 
   .photo {
     width: 47%;
     transition: all 0.1s;
-
-    &:hover {
-      -webkit-filter: brightness(0.8);
-    }
   }
 
   .author__link {
@@ -105,6 +113,10 @@ a {
       color: white;
       position: absolute;
       top: calc(100% - 4rem);
+
+      &__name {
+        font-weight: 400;
+      }
     }
   }
 

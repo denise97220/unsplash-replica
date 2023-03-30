@@ -51,7 +51,7 @@ const PhotoCard = ({ photo }) => {
         state={{ user: photo.user }}
       >
         <div className={styles.author}>
-          <img className={styles.author__img} src={photo.user.profile_image.medium} alt='' />
+          <img className={styles.author__img} src={photo.user.profile_image.medium} alt='image' />
           <p className={styles.author__name}>{photo.user.name}</p>
         </div>
       </Link>
@@ -71,6 +71,7 @@ const PhotoCard = ({ photo }) => {
           </a>
         </div>
       </div>
+      {/* Mobile version */}
       <div className={`${styles.button} ${styles.button__phone}`}>
         {isLiked ? (
           <div className={`${styles.buttonBox} ${styles.LikeButtonBox}`} onClick={unLikeHandler}>

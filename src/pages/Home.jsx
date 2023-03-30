@@ -18,11 +18,11 @@ const Home = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(INDEX_URL)
+      setIsLoading(true)
 
       // TODO: error handler
       try {
-        setIsLoading(true)
+        const response = await fetch(INDEX_URL)
         const resData = await response.json()
         setPhotos(resData.results)
         setIsLoading(false)

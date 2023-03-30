@@ -22,6 +22,7 @@ const Header = ({ searchHandler }) => {
     if (location.pathname !== '/') {
       return navigate(`/?search=${value}`)
     }
+    inputRef.current.value = ''
   }
 
   const KeyUpHandler = (event) => {
@@ -34,6 +35,8 @@ const Header = ({ searchHandler }) => {
       if (location.pathname !== '/') {
         return navigate(`/?search=${value}`)
       }
+
+      inputRef.current.value = ''
     }
   }
 

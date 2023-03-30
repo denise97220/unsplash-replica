@@ -47,10 +47,13 @@ const Author = () => {
               <CheckIcon className={`${styles.icon} ${styles.CheckIcon}`} />
               <p>Available for hire</p>
             </li>
-            <li className={styles.location}>
-              <LocationIcon className={`${styles.icon} ${styles.locationIcon}`} />
-              <p>{user.location}</p>
-            </li>
+            {user.location && (
+              <li className={styles.location}>
+                <LocationIcon className={`${styles.icon} ${styles.locationIcon}`} />
+                <p>{user.location}</p>
+              </li>
+            )}
+
             <a href={`https://www.instagram.com/${user.social.instagram_username}`}>
               <li>
                 <InstagramIcon className={`${styles.icon} ${styles.instagramIcon}`} />

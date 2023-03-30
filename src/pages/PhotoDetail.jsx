@@ -59,12 +59,17 @@ const PhotoDetail = () => {
       </div>
       <div className={styles.tags}>
         <h3 className={styles.tags__title}>Related tags</h3>
-        {photo.tags &&
-          photo.tags.map((tag) => (
-            <div className={styles.tag} key={tag.title}>
-              {tag.title}
-            </div>
-          ))}
+        {photo.tags
+          ? photo.tags.map((tag) => (
+              <div className={styles.tag} key={tag.title}>
+                {tag.title}
+              </div>
+            ))
+          : randomTags.map((tag) => (
+              <div className={styles.tag} key={tag}>
+                {tag}
+              </div>
+            ))}
       </div>
       <div className={styles.related_photos}>
         <h3 className={styles.photos__title}>Related photos</h3>
