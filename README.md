@@ -14,7 +14,7 @@
 ## 雲端部署
 
 - **專案連結**：
-  - **前端**：Github page (連結請在此貼上)
+  - **前端**：https://denise97220.github.io/unsplash-replica/
 - **測試帳號**：`test123@gmail.com` | **密碼**：`test123`
   _(如測試帳號遭變更導致無法使用，可以自行註冊）_
 
